@@ -14,7 +14,7 @@ spec:
     path: charts/podinfo
     ref: master
   values:
-    image: urkonn/podinfo:dev-r15jgyqs
+    image: urkonn/podinfo:dev-uhxuefbt
     replicaCount: 1
     hpa:
       enabled: false
