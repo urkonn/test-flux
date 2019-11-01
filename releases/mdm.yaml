@@ -1,0 +1,20 @@
+---
+apiVersion: flux.weave.works/v1beta1
+kind: HelmRelease
+metadata:
+  name: redis
+  namespace: prod
+  annotations:
+    flux.weave.works/automated: "true"
+    flux.weave.works/tag.chart-image: glob:*
+spec:
+  releaseName: someredis
+  chart:
+    git: git@github.com:helm/charts.git
+    path: stable/redis
+    ref: master
+  values:
+    image: redis:latest
+    replicaCount: 1
+    hpa:
+      enabled: false

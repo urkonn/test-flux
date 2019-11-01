@@ -1,0 +1,20 @@
+---
+apiVersion: flux.weave.works/v1beta1
+kind: HelmRelease
+metadata:
+  name: production
+  namespace: prod
+  annotations:
+    flux.weave.works/automated: "true"
+    flux.weave.works/tag.chart-image: glob:AP-*
+spec:
+  releaseName: arkon-prod
+  chart:
+    git: git@github.com:stefanprodan/gitops-helm
+    path: charts/podinfo
+    ref: master
+  values:
+    image: urkonn/podinfo:AP-uwdxtqg1
+    replicaCount: 1
+    hpa:
+      enabled: false
