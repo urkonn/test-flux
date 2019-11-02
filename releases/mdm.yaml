@@ -14,7 +14,7 @@ spec:
     path: stable/redis
     ref: master
   values:
-    image: redis:latest
+    image: redis:alpine
     replicaCount: 1
     hpa:
       enabled: false
