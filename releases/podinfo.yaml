@@ -15,6 +15,6 @@ spec:
     ref: master
   values:
     image: urkonn/podinfo:AP-iiciopq5
-    replicaCount: 2
+    replicaCount: 3
     hpa:
       enabled: false
