@@ -14,7 +14,7 @@ spec:
     path: charts/postgresql
     ref: master
   values:
-    image: bitnami/postgresql:10.10.0-r88
+    image: bitnami/postgresql:12
     replicaCount: 3
     valuesFrom:
       secretKeyRef:
