@@ -1,0 +1,22 @@
+---
+apiVersion: flux.weave.works/v1beta1
+kind: HelmRelease
+metadata:
+  name: pgtest
+  namespace: pg
+  annotations:
+    flux.weave.works/automated: "true"
+    flux.weave.works/tag.chart-image: glob:*
+spec:
+  releaseName: pgtest
+  chart:
+    git: git@github.com:urkonn/test-flux.git
+    path: charts/postgresql
+    ref: master
+  values:
+    image: bitnami/postgresql:9.6
+    replicaCount: 3
+    valuesFrom:
+      secretKeyRef:
+        name: pgtest-postgresql
+        key: postgresql-password
